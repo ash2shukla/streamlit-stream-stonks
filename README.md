@@ -14,4 +14,10 @@ Clone the repo,
 
 And you are done.
 
+```You can only have one active websocket connection at a time with free trial of finnhub!```
+
 ![snippet](assets/snippet.gif)
+
+#### Development
+
+The docker-compose by default mounts the "consumer" directory to "src" inside container to leverage hot-reload of streamlit, so that you dont have to install any dependencies locally ! 😊
