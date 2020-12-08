@@ -1,12 +1,10 @@
 version: "2"
 
 services:
-    wsserver:
-        build:
-            context: ./producer
-    
-    lit-app:
+    stream-stocks:
         build:
             context: ./consumer
+        volumes:
+            - ./consumer:/usr/src/app/
         ports:
             - 8501:8501
