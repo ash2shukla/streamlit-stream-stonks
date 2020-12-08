@@ -3,7 +3,7 @@ from collections import defaultdict, deque
 from pathlib import Path
 from functools import partial
 import asyncio
-from .constants import MatColors
+from .constants import MatColors, GRAPH_TYPES, SAMPLING_FREQS
 from .charts import CHARTS
 
 import os
@@ -46,19 +46,23 @@ def colored_text(price, change):
     """
 
 
-def create_data_box(container, channel_name):
+def create_data_box(container, channel_name, global_graph_type, global_sampling_freq):
     container.subheader(channel_name)
     up_down = container.empty()
     graph = container.empty()
 
     with container.beta_expander("Chart Config"):
         graph_type = st.selectbox(
-            "Graph Type", ["CandleStick", "Line", "Bar"], key=f"gtype{channel_name}"
+            "Graph Type",
+            GRAPH_TYPES,
+            key=f"gtype{channel_name}",
+            index=GRAPH_TYPES.index(global_graph_type)
         )
         sampling_freq = st.selectbox(
             "Sampling Frequency",
-            ["5S", "10S", "1Min", "5Min"],
+            SAMPLING_FREQS,
             key=f"stype{channel_name}",
+            index=SAMPLING_FREQS.index(global_sampling_freq)
         )
     return {
         "stat": up_down,
