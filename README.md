@@ -1,16 +1,16 @@
-## Streamlit Streaming
+## Streamlit Stream STONKS!
 
-A template to create applications that consume from a stream.
+![stonks](assets/stonks.png)
 
-This template consumes from a websocket stream but it can be anything, a messaging queue ( mqtt, amqp etc.), or any async generatior.
+A practical implementation of a realtime stocks dashboard using streamlit stream template.
 
 #### How to run ?
 
-Clone the repo and
+Clone the repo,
 
-```
-docker-compose up
-```
+1. Get your API key from [Finnhub](https://finnhub.io)
+2. Replace ${FINNHUB_TOKEN} in docker-compose.yml with your api key.
+3.  ```docker-compose up```
 
 And you are done.
 

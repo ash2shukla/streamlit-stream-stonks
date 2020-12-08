@@ -8,3 +8,5 @@ services:
             - ./consumer:/usr/src/app/
         ports:
             - 8501:8501
+        environment:
+            - FINNHUB_TOKEN=${FINNHUB_TOKEN}
