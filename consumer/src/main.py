@@ -15,10 +15,10 @@ def main(state):
     with st.sidebar:
         token_placeholder = st.empty()
 
-        token = token_placeholder.text_input("Finnhub Token")
-
-        if token:
+        if state.token:
             token_placeholder.empty()
+        else:
+            state.token = token_placeholder.text_input("Finnhub Token")
 
         status = st.empty()
 
@@ -62,8 +62,7 @@ def main(state):
                 dict(zip(selected_channels_symbols, columns)),
                 selected_channels,
                 status,
-                state,
-                FINNHUB_TOKEN=token
+                state
             )
         )
 

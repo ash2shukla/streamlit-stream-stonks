@@ -80,8 +80,8 @@ def process_message(channel_data, graph):
     )
 
 
-async def consumer(graphs, selected_channels, status, state, FINNHUB_TOKEN=None):
-    TKN = FINNHUB_TOKEN or os.getenv("FINNHUB_TOKEN")
+async def consumer(graphs, selected_channels, status, state):
+    TKN = state.token or os.getenv("FINNHUB_TOKEN")
 
     WS_CONN = f"wss://ws.finnhub.io?token={TKN}"
     
