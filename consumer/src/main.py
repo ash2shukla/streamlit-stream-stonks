@@ -13,6 +13,13 @@ add_custom_css()
 @provide_state
 def main(state):
     with st.sidebar:
+        token_placeholder = st.empty()
+
+        token = token_placeholder.text_input("Finnhub Token")
+
+        if token:
+            token_placeholder.empty()
+
         status = st.empty()
 
         status.subheader("Disconnected.")
@@ -55,7 +62,8 @@ def main(state):
                 dict(zip(selected_channels_symbols, columns)),
                 selected_channels,
                 status,
-                state
+                state,
+                FINNHUB_TOKEN=token
             )
         )
 

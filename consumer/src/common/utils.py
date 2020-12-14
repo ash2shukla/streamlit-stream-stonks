@@ -9,10 +9,6 @@ from .charts import CHARTS
 import os
 import streamlit as st
 
-TKN = os.getenv("FINNHUB_TOKEN")
-
-WS_CONN = f"wss://ws.finnhub.io?token={TKN}"
-
 
 def add_custom_css():
     st.markdown(
@@ -84,7 +80,11 @@ def process_message(channel_data, graph):
     )
 
 
-async def consumer(graphs, selected_channels, status, state):
+async def consumer(graphs, selected_channels, status, state, FINNHUB_TOKEN=None):
+    TKN = FINNHUB_TOKEN or os.getenv("FINNHUB_TOKEN")
+
+    WS_CONN = f"wss://ws.finnhub.io?token={TKN}"
+    
     state.windows = state.windows or defaultdict(partial(deque, maxlen=1_000))
 
     for channel, graph in graphs.items():
