@@ -9,7 +9,8 @@ A practical implementation of a realtime stocks dashboard using streamlit stream
 Clone the repo,
 
 1. Get your API key from [Finnhub](https://finnhub.io)
-2. Replace ${FINNHUB_TOKEN} in docker-compose.yml with your api key.
+2.a. (Unsafe) Replace ${FINNHUB_TOKEN} in docker-compose.yml with your api 
+2.b. Set host machine's env variable FINNHUB_TOKEN=your-token-value
 3.  ```docker-compose up```
 
 And you are done.
